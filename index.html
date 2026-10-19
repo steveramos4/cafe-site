@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>کافه سایت · Site Café</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Vazirmatn:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6efe4;--bg2:#ebe0cf;--ink:#2a1a12;--mute:#6f5a4b;--card:#fffaf1;--line:#d9c9b2;--acc:#0f7c7a;--acc2:#e0a21b;--glow:rgba(224,162,27,.28);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17100c;--bg2:#21160f;--ink:#f3e6d3;--mute:#b79f88;--card:#2a1c13;--line:#43301f;--acc:#3cc5c0;--acc2:#f0b93a;--glow:rgba(240,185,58,.22)}}
+:root[data-theme="dark"]{--bg:#17100c;--bg2:#21160f;--ink:#f3e6d3;--mute:#b79f88;--card:#2a1c13;--line:#43301f;--acc:#3cc5c0;--acc2:#f0b93a;--glow:rgba(240,185,58,.22)}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Vazirmatn',system-ui,sans-serif;line-height:1.8;transition:background .4s,color .4s;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(420px circle at var(--mx,50%) var(--my,30%),var(--glow),transparent 70%);z-index:0}
+header{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 5vw;padding-top:calc(10px + env(safe-area-inset-top,0px));background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.logo{font-family:'Lalezar',cursive;font-size:1.6rem;color:var(--acc)}
+nav{display:flex;gap:18px}
+nav a{color:var(--ink);text-decoration:none;position:relative;padding:2px 0}
+nav a::after{content:"";position:absolute;inset-inline:0;bottom:0;height:2px;background:var(--acc2);transform:scaleX(0);transition:transform .3s}
+nav a:hover::after,nav a:focus-visible::after{transform:scaleX(1)}
+.tools{display:flex;gap:8px}
+button{font:inherit;cursor:pointer;color:var(--ink)}
+.tool{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px 14px;transition:.25s}
+.tool:hover{border-color:var(--acc);transform:translateY(-2px)}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+main,footer{position:relative;z-index:1}
+.hero{min-height:84vh;display:grid;place-items:center;text-align:center;padding:40px 5vw}
+.hero h1{font-family:'Lalezar',cursive;font-weight:400;font-size:clamp(3.4rem,14vw,8.5rem);line-height:1.1;margin:0;color:var(--ink);transition:letter-spacing .5s,color .3s}
+.hero h1:hover{color:var(--acc);letter-spacing:.04em}
+.hero p{max-width:34ch;margin:8px auto 22px;color:var(--mute);font-size:1.15rem}
+.cup{width:min(240px,60vw);margin:0 auto -10px;display:block;overflow:visible}
+.steam path{fill:none;stroke:var(--acc2);stroke-width:5;stroke-linecap:round;opacity:0;animation:rise 3.6s ease-in-out infinite}
+.steam path:nth-child(2){animation-delay:1.1s}.steam path:nth-child(3){animation-delay:2.2s}
+@keyframes rise{0%{opacity:0;transform:translateY(24px) scaleY(.8)}30%{opacity:.9}100%{opacity:0;transform:translateY(-34px) scaleY(1.15)}}
+.cta{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;border-radius:999px;padding:10px 30px;font-weight:600;transition:transform .25s,box-shadow .25s;box-shadow:0 0 0 0 var(--glow)}
+.cta:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 10px 30px var(--glow)}
+section{padding:70px 5vw;max-width:1100px;margin:auto}
+h2{font-family:'Lalezar',cursive;font-weight:400;font-size:clamp(2rem,6vw,3.2rem);margin:0 0 20px}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.tab{background:transparent;border:2px solid var(--line);border-radius:999px;padding:6px 24px;font-size:1.05rem;transition:.3s}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;perspective:900px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;transition:transform .15s,border-color .3s,box-shadow .3s;transform:rotateX(var(--rx,0)) rotateY(var(--ry,0));animation:pop .45s both}
+.item:hover{border-color:var(--acc2);box-shadow:0 14px 34px var(--glow)}
+@keyframes pop{from{opacity:0;transform:scale(.92) translateY(14px)}}
+.ico{font-size:2.6rem;display:inline-block;transition:transform .4s}
+.item:hover .ico{transform:rotate(-14deg) scale(1.2)}
+.item h3{margin:6px 0 0;font-size:1.25rem}
+.item p{margin:4px 0 12px;color:var(--mute);font-size:.95rem}
+.price{color:var(--acc);font-weight:600}
+.about{background:var(--bg2);max-width:none;text-align:center}
+.about p{max-width:52ch;margin:auto;color:var(--mute);font-size:1.1rem}
+footer{text-align:center;padding:30px;color:var(--mute);border-top:1px solid var(--line)}
+@media (max-width:640px){nav{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <span class="logo" data-t="logo"></span>
+  <nav><a href="#menu" data-t="nav1"></a><a href="#about" data-t="nav2"></a></nav>
+  <div class="tools">
+    <button class="tool" id="lang" aria-label="Language"></button>
+    <button class="tool" id="theme" aria-label="Theme"></button>
+  </div>
+</header>
+<main>
+  <div class="hero"><div>
+    <svg class="cup" viewBox="0 0 200 170" aria-hidden="true">
+      <g class="steam"><path d="M70 60c-14-16 14-26 0-44"/><path d="M100 60c-14-16 14-26 0-44"/><path d="M130 60c-14-16 14-26 0-44"/></g>
+      <path d="M40 76h120v38a52 52 0 0 1-52 52h-16a52 52 0 0 1-52-52z" fill="var(--card)" stroke="var(--ink)" stroke-width="5"/>
+      <path d="M160 88h10a20 20 0 0 1 0 40h-14" fill="none" stroke="var(--ink)" stroke-width="5"/>
+      <ellipse cx="100" cy="82" rx="54" ry="8" fill="var(--acc2)" opacity=".85"/>
+    </svg>
+    <h1 data-t="welcome"></h1>
+    <p data-t="tag"></p>
+    <a class="cta" href="#menu" data-t="cta"></a>
+  </div></div>
+  <section id="menu">
+    <h2 data-t="menu"></h2>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="grid" id="grid"></div>
+  </section>
+  <section class="about" id="about"><h2 data-t="aboutH"></h2><p data-t="about"></p></section>
+</main>
+<footer data-t="foot"></footer>
+<script>
+var T={
+fa:{logo:"کافه سایت",nav1:"منو",nav2:"درباره ما",welcome:"خوش آمدید",tag:"قهوه تازه، طعم‌های خانگی و گوشه‌ای آرام برای نشستن.",cta:"دیدن منو",menu:"منوی کافه",aboutH:"درباره ما",about:"ما هر روز قهوه را تازه آسیاب می‌کنیم و غذاها را با مواد محلی می‌پزیم. یک فنجان بردارید و کمی بمانید.",foot:"© ۱۴۰۵ کافه سایت",c:{coffee:"قهوه",food:"غذا",drinks:"نوشیدنی"},unit:"هزار تومان",theme:["☀️ روشن","🌙 تیره"],lang:"English"},
+en:{logo:"Site Café",nav1:"Menu",nav2:"About",welcome:"Welcome",tag:"Fresh coffee, homemade flavors and a quiet corner to sit in.",cta:"See the menu",menu:"Our menu",aboutH:"About us",about:"We grind our coffee fresh every day and bake with local ingredients. Take a cup and stay a while.",foot:"© 2026 Site Café",c:{coffee:"Coffee",food:"Food",drinks:"Drinks"},unit:"k toman",theme:["☀️ Light","🌙 Dark"],lang:"فارسی"}};
+var M=[
+["coffee","☕","اسپرسو","Espresso","دوبل، غلیظ و خوش‌عطر","Double shot, rich and bold",85],
+["coffee","🥛","لاته","Latte","شیر بخارداده با اسپرسو","Steamed milk over espresso",110],
+["coffee","☁️","کاپوچینو","Cappuccino","فوم ابریشمی و دارچین","Silky foam with cinnamon",115],
+["coffee","🫖","قهوه ترک","Turkish coffee","در ظرف سنتی، با هل","Served traditionally, with cardamom",95],
+["coffee","🧊","کلد برو","Cold brew","۱۸ ساعت دم‌کشیده","Steeped for 18 hours",130],
+["food","🥐","کروسان کره‌ای","Butter croissant","تازه از فر، لایه‌لایه","Warm from the oven, flaky",120],
+["food","🍰","چیزکیک","Cheesecake","با سس توت‌فرنگی","With strawberry sauce",160],
+["food","🍳","املت","Omelette","گوجه، پیاز و نان تافتون","Tomato, onion and flatbread",150],
+["food","🥪","ساندویچ کلاب","Club sandwich","مرغ گریل و سس مخصوص","Grilled chicken, house sauce",190],
+["drinks","🍫","هات چاکلت","Hot chocolate","شکلات تلخ و خامه","Dark chocolate and cream",120],
+["drinks","🍋","لیمو نعنا","Mint lemonade","خنک و ترش‌شیرین","Cool, tart and sweet",90],
+["drinks","🍵","چای زعفرانی","Saffron tea","دمنوش با نبات","Brewed with rock candy",80],
+["drinks","🍊","آب‌پرتقال","Orange juice","طبیعی و تازه‌فشرده","Fresh squeezed, nothing added",100]];
+var st={lang:"fa",theme:null,cat:"coffee"},R=document.documentElement;
+function get(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function put(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function dark(){return st.theme?st.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches}
+function fa(n){return st.lang==="fa"?String(n).replace(/\d/g,function(d){return"۰۱۲۳۴۵۶۷۸۹"[d]}):n}
+function render(){
+ var t=T[st.lang];
+ R.lang=st.lang;R.dir=st.lang==="fa"?"rtl":"ltr";
+ document.title=t.logo;
+ document.querySelectorAll("[data-t]").forEach(function(e){e.textContent=t[e.dataset.t]});
+ document.getElementById("lang").textContent=t.lang;
+ document.getElementById("theme").textContent=dark()?t.theme[0]:t.theme[1];
+ R.dataset.theme=dark()?"dark":"light";
+ var tabs=document.getElementById("tabs");tabs.innerHTML="";
+ Object.keys(t.c).forEach(function(k){
+  var b=document.createElement("button");b.className="tab";b.setAttribute("role","tab");
+  b.setAttribute("aria-selected",k===st.cat);b.textContent=t.c[k];
+  b.onclick=function(){st.cat=k;render()};tabs.appendChild(b)});
+ var g=document.getElementById("grid");g.innerHTML="";
+ M.filter(function(m){return m[0]===st.cat}).forEach(function(m,i){
+  var d=document.createElement("article"),f=st.lang==="fa";
+  d.className="item";d.style.animationDelay=i*70+"ms";
+  d.innerHTML='<span class="ico">'+m[1]+'</span><h3>'+(f?m[2]:m[3])+'</h3><p>'+(f?m[4]:m[5])+'</p><span class="price">'+fa(m[6])+" "+t.unit+"</span>";
+  d.onmousemove=function(e){var r=d.getBoundingClientRect();
+   d.style.setProperty("--ry",((e.clientX-r.left)/r.width-.5)*10+"deg");
+   d.style.setProperty("--rx",((e.clientY-r.top)/r.height-.5)*-10+"deg")};
+  d.onmouseleave=function(){d.style.setProperty("--rx","0deg");d.style.setProperty("--ry","0deg")};
+  g.appendChild(d)});
+}
+document.getElementById("lang").onclick=function(){st.lang=st.lang==="fa"?"en":"fa";put("cafe-lang",st.lang);render()};
+document.getElementById("theme").onclick=function(){st.theme=dark()?"light":"dark";put("cafe-theme",st.theme);render()};
+addEventListener("pointermove",function(e){R.style.setProperty("--mx",e.clientX+"px");R.style.setProperty("--my",e.clientY+"px")});
+var sl=get("cafe-lang"),sth=get("cafe-theme");
+if(sl==="en"||sl==="fa")st.lang=sl;
+if(sth==="dark"||sth==="light")st.theme=sth;
+render();
+</script>
+</body>
+</html>
